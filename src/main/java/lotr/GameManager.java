@@ -2,10 +2,7 @@ package lotr;
 
 public class GameManager {
     public void fight(Character c1, Character c2) {
-        System.out.println("Fight between " + c1.getClass().getSimpleName() 
-        + " (" + c1.getHp() + " HP, " + c1.getPower() + " power) and " 
-        + c2.getClass().getSimpleName()
-        + " (" + c2.getHp() + " HP, " + c2.getPower() + " power)");
+        System.out.println("Fight between " + c1.toString() + " and " + c2.toString());
         if (c1.getClass().getSimpleName().equals("Hobbit")
         && c2.getClass().getSimpleName().equals("Hobbit")) {
             System.out.println("Both are hobbits, so they will fight forever.");

@@ -37,8 +37,14 @@ abstract public class Character {
 
     public void setHp(int newhp) {
         hp = newhp;
+        if (this.hp < 0) this.hp = 0;
     }
     public void setPower(int newp) {
         power = newp;
+    }
+
+    public String toString() {
+        return this.getClass().getSimpleName() + "{hp=" + this.getHp() + ", power=" 
+        + getPower() + "}";
     }
 }

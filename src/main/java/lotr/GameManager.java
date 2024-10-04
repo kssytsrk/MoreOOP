@@ -1,8 +1,21 @@
 package lotr;
 
-class GameManager {
+public class GameManager {
     public void fight(Character c1, Character c2) {
-        System.out.println("Fight between " + c1.getClass().getSimpleName() + " and " + c2.getClass().getSimpleName());
+        System.out.println("Fight between " + c1.getClass().getSimpleName() 
+        + " (" + c1.getHp() + " HP, " + c1.getPower() + " power) and " 
+        + c2.getClass().getSimpleName()
+        + " (" + c2.getHp() + " HP, " + c2.getPower() + " power)");
+        if (c1.getClass().getSimpleName().equals("Hobbit")
+        && c2.getClass().getSimpleName().equals("Hobbit")) {
+            System.out.println("Both are hobbits, so they will fight forever.");
+            return;
+        }
+        if (c1.getClass().getSimpleName().equals("Elf")
+        && c2.getClass().getSimpleName().equals("Elf")) {
+            System.out.println("Both are elves, so they will fight forever.");
+            return;
+        }
         while (c1.isAlive() && c2.isAlive()) {
             c1.kick(c2);
             if (c2.isAlive()) {

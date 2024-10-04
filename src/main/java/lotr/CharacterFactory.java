@@ -1,21 +1,19 @@
 package lotr;
 
+import java.util.List;
 import java.util.Random;
 
-class CharacterFactory {
+public class CharacterFactory {
     private Random random = new Random();
 
     public Character createCharacter() {
-        int choice = random.nextInt(4);
-        switch (choice) {
-            case 0:
-                return new Hobbit();
-            case 1:
-                return new Elf();
-            case 2:
-                return new King();
-            default:
-                return new Knight();
+        List<Class<? extends Character>> characterClasses = List.of(Hobbit.class, Elf.class, King.class, Knight.class);
+        Class<? extends Character> characterClass = characterClasses.get(random.nextInt(characterClasses.size()));
+        try {
+            return characterClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
